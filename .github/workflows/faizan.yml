@@ -1,0 +1,19 @@
+name : build-war
+
+on :
+  push :
+    branches: ["main"]
+
+jobs:
+  build-war:
+    runs-on: ubuntu-latest
+    steps:
+       - uses: action/checkout@v4
+       - uses: actios/setup-java@4
+         with:
+            java-version: '17'
+            distribution: 'termurin'
+       - run: mvn clean package
+      
+            
+    
